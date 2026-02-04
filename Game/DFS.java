@@ -1,3 +1,4 @@
+package Game;
 import java.util.*;
 
 public class DFS {
@@ -8,7 +9,7 @@ public class DFS {
         Set<Position> start = ends.get(0);
         Set<Position> end = ends.get(1);
 
-        // Utiliser un seul ensemble visited pour toute la recherche
+       
         Set<Position> visited = new HashSet<>();
 
         for (Position p : start) {
@@ -19,8 +20,8 @@ public class DFS {
                 if (dfs(grid, size, p, end, visited, c)) {
                     return true;
                 }
-                // Ne pas réinitialiser visited entre les points de départ
-                // Le visited est partagé
+               
+               
             }
         }
         return false;
@@ -30,21 +31,18 @@ public class DFS {
                         Set<Position> end, Set<Position> visited, Color c) {
 
         if (end.contains(p)) {
-            return true; // On a atteint le bord opposé
+            return true; 
         }
         
         if (visited.contains(p)) {
-            return false; // Déjà visité
+            return false; 
         }
 
-        visited.add(p); // Marquer comme visité
-
-        // Explorer tous les voisins
+        visited.add(p); 
         for (Position neighbor : Board.getNeighbors(p, size)) {
             int x = neighbor.getX();
             int y = neighbor.getY();
 
-            // Vérifier que le voisin a la bonne couleur
             if (grid[x][y] == c) {
                 if (dfs(grid, size, neighbor, end, visited, c)) {
                     return true; // Chemin trouvé
@@ -52,6 +50,6 @@ public class DFS {
             }
         }
         
-        return false; // Aucun chemin depuis ce point
+        return false; 
     }
 }

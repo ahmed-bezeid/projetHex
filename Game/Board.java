@@ -1,4 +1,4 @@
-
+package Game;
 import java.util.*;
 
 public class Board {
@@ -34,7 +34,7 @@ public class Board {
     }
 
 
-    public  Color[][] cloneGrid(Color[][] grid) {
+    public  static final Color[][] cloneGrid(Color[][] grid) {
         int size = grid.length;
         Color[][] copy = new Color[size][size];
 
@@ -147,6 +147,13 @@ public static void printBoard(Board board){
         return grid;
     }
 
-    
+    public List<Set<Position>> getRedEnds(){
+        return this.red_ends;
+    }
+
+    public List<Set<Position>> getBlueEnds(){
+        return this.blue_ends;
+    }
+
 }
 
