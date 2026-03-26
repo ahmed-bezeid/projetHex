@@ -1,6 +1,9 @@
-package mcts;
-import java.util.*;
+package Mcts;
 import Game.*;
+import java.util.*;
+
+
+
 public class NodeMcts {
     private int victories,visites;
     private State state;
@@ -54,10 +57,6 @@ public class NodeMcts {
         return state;
     }
 
-    public double getValue() {
-        return victories / (double) visites; 
-    }
-
     public int getVictories() {
         return victories;
     }
@@ -86,7 +85,7 @@ public class NodeMcts {
     }
 
     @Override
-    public boolean equals(Object obj) { //attention il faut bien verifier le fait qu'un etat peut avoir plusieurs parents??
+    public boolean equals(Object obj) { 
         if(obj == null || !(obj instanceof NodeMcts)){
             return false;
         }
